@@ -14,10 +14,10 @@ class Calculator {
 
   divide(num1, num2) {
     if (this.isValid(num1, num2)) {
-      if (num1 === 0 && num2 === 0) {
-        throw new Error('Cannot perform Zero divide by Zero operation');
-      } else if (num2 === 0) {
-        throw new Error('Cannot divide by zero');
+      if (num2 === 0) {
+        if (num1 === 0) {
+          throw new Error('Cannot perform Zero divide by Zero operation');
+        } else throw new Error('Cannot divide by zero');
       }
       return num1 / num2;
     }
@@ -45,7 +45,7 @@ class Calculator {
   }
 
   tan(number) {
-    return this.sin(number) / this.cos(number);
+    if (this.isValid(number)) return Math.tan((number * Math.PI) / 180);
   }
 
   isValid(num1, num2 = 0) {
@@ -69,11 +69,11 @@ class Calculator {
 //   // console.log(calc.squareRoot(81));
 //   // console.log(calc.sin(30));
 //   // console.log(calc.cos(25));
-//   // console.log(calc.tan(45));
+//   // console.log(calc.tan('aa'));
 //   //   console.log(calc.isValid(25, 'a', 32));
 // } catch (error) {
-// console.log(error.name + ': ' + error.message);
-// // console.log(error);
+//   console.log(error.name + ': ' + error.message);
+//  // console.log(error);
 // } finally {
 //   console.log('program terminated');
 // }

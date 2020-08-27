@@ -2,6 +2,7 @@ const Calculator = require('./Calculator');
 
 const calculator = new Calculator();
 
+// Addition test
 describe('Addition method', () => {
   test('Fails to adds two numbers', () => {
     expect(calculator.add(2, 3)).not.toBe(6);
